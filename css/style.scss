@@ -1,0 +1,31 @@
+@import './reset';
+@import './variables';
+
+html {
+  font-size: 14px;
+
+  @include md {
+    font-size: 18px;
+  }
+}
+
+%body {
+  font-family: $font-family;
+}
+
+.body {
+  @extend %body;
+
+  &.dark {
+    background: $dark--very-dark-blue;
+    color: #fff;
+  }
+
+  &.light {
+    background: #fff;
+    color: #222;
+  }
+}
+
+@import './header';
+@import './list';

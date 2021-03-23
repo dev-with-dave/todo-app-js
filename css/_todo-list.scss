@@ -1,0 +1,95 @@
+.todo-list {
+  border-radius: 5px;
+
+  input {
+    @include flex(center, center);
+    position: relative;
+    appearance: none;
+    margin: 0 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: double 2px $dark--dark-grayish-blue;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      border-color: transparent;
+      background-image: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%)),
+        linear-gradient($check-background);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+
+    &:checked {
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient($check-background);
+
+      + label {
+        text-decoration: line-through;
+        color: $dark--dark-grayish-blue;
+      }
+
+      &::before {
+        content: url('../images/icon-check.svg');
+        transform: translateY(10%);
+      }
+    }
+  }
+
+  label {
+    @include flex(center);
+    height: 100%;
+    width: calc(100% - 3.25rem);
+  }
+
+  .todo-list__task {
+    @include flex(center);
+    height: 3rem;
+  }
+
+  .todo-list__footer {
+    @include flex(center, space-between);
+    padding: 1rem;
+    position: relative;
+
+    li {
+      font-size: 0.9rem;
+      color: $dark--dark-grayish-blue;
+
+      .active {
+        color: $bright-blue !important;
+        transition: all 100ms;
+
+        &:hover {
+          color: lighten($bright-blue, 10%) !important;
+        }
+      }
+    }
+
+    .controls,
+    .clear {
+      span {
+        margin: 0 0.25rem;
+        cursor: pointer;
+        transition: all 200ms;
+        color: $dark--dark-grayish-blue;
+      }
+    }
+
+    .controls {
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 5px;
+      background-color: $dark--very-dark-desaturated-blue;
+
+      @include md {
+        all: initial;
+      }
+    }
+  }
+}

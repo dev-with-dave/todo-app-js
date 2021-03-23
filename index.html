@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Todo app</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="body dark">
+    <header class="header dark">
+      <div>
+        <h1>Todo</h1>
+        <img class="theme-toggle" src="./images/icon-sun.svg" alt="" />
+      </div>
+    </header>
+    <main>
+      <article class="container dark">
+        <form class="add-todo">
+          <span></span>
+          <input type="text" placeholder="Create a new todo..." />
+        </form>
+        <ul class="todo-list">
+          <li class="todo-list__task complete">
+            <input id="first-todo" type="checkbox" />
+            <label for="first-todo">Complete online JavaScript course</label>
+          </li>
+          <li class="todo-list__task">
+            <input id="second-todo" type="checkbox" />
+            <label for="second-todo">Jog around the park 3x</label>
+          </li>
+          <li class="todo-list__task">
+            <input id="third-todo" type="checkbox" />
+            <label for="third-todo">10 minutes meditation</label>
+          </li>
+          <li class="todo-list__task">
+            <input id="fourth-todo" type="checkbox" />
+            <label for="fourth-todo">Read for 1 hour</label>
+          </li>
+          <li class="todo-list__task">
+            <input id="fifth-todo" type="checkbox" />
+            <label for="fifth-todo">Pick up groceries</label>
+          </li>
+          <li class="todo-list__task">
+            <input id="sixth-todo" type="checkbox" />
+            <label for="sixth-todo">Complete Todo App on Frontend Mentor</label>
+          </li>
+
+          <ul class="todo-list__footer">
+            <li class="todo-left"><span id="todo-count">5</span> items left</li>
+            <li class="controls">
+              <span class="active">All</span>
+              <span>Active</span>
+              <span>Completed</span>
+            </li>
+            <li class="clear"><span>Clear Completed</span></li>
+          </ul>
+        </ul>
+
+        <span class="drag-n-drop">Drag and drop to reorder list</span>
+      </article>
+    </main>
+  </body>
+</html>
