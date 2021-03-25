@@ -192,62 +192,11 @@ html {
   color: #222;
 }
 
-@-webkit-keyframes slide-down {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-down {
-  0% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 /**
  * ----------------------------------------
  * animation slide-in-fwd-top
  * ----------------------------------------
  */
-@-webkit-keyframes slide-in-fwd-top {
-  0% {
-    -webkit-transform: translateZ(-1400px) translateY(-800px);
-            transform: translateZ(-1400px) translateY(-800px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0) translateY(0);
-            transform: translateZ(0) translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-fwd-top {
-  0% {
-    -webkit-transform: translateZ(-1400px) translateY(-800px);
-            transform: translateZ(-1400px) translateY(-800px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0) translateY(0);
-            transform: translateZ(0) translateY(0);
-    opacity: 1;
-  }
-}
-
 .header {
   height: 30vh;
 }
@@ -270,8 +219,6 @@ html {
   max-width: 650px;
   margin: auto;
   padding-top: 7.5vh;
-  -webkit-animation: slide-in-fwd-top 1s 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: slide-in-fwd-top 1s 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .header div h1 {
@@ -301,32 +248,6 @@ html {
   color: #fff;
 }
 
-@-webkit-keyframes fade-in {
-  0% {
-    -webkit-transform: translate(-100%);
-            transform: translate(-100%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%);
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    -webkit-transform: translate(-100%);
-            transform: translate(-100%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translate(-50%);
-            transform: translate(-50%);
-    opacity: 1;
-  }
-}
-
 .container {
   position: absolute;
   top: 17.5vh;
@@ -336,15 +257,6 @@ html {
   width: 90%;
   max-width: 650px;
   margin: auto;
-  opacity: 0;
-  -webkit-animation-name: fade-in;
-          animation-name: fade-in;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-delay: 500ms;
-          animation-delay: 500ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
 }
 
 @media (min-width: 768px) {

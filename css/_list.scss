@@ -1,13 +1,13 @@
-@keyframes fade-in {
-  0% {
-    transform: translate(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(-50%);
-    opacity: 1;
-  }
-}
+// @keyframes fade-in {
+//   0% {
+//     transform: translate(-100%);
+//     opacity: 0;
+//   }
+//   100% {
+//     transform: translate(-50%);
+//     opacity: 1;
+//   }
+// }
 
 .container {
   position: absolute;
@@ -17,11 +17,11 @@
   width: 90%;
   max-width: $max-width;
   margin: auto;
-  opacity: 0;
-  animation-name: fade-in;
-  animation-duration: 1s;
-  animation-delay: 500ms;
-  animation-fill-mode: forwards;
+  // opacity: 0;
+  // animation-name: fade-in;
+  // animation-duration: 1s;
+  // animation-delay: 500ms;
+  // animation-fill-mode: forwards;
 
   @include md {
     top: 15vh;
