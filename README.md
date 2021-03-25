@@ -1,99 +1,107 @@
-# Frontend Mentor - Todo app
+# Todo app
 
-![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)
+On a fini l'intégration HTML/CSS de cette jolie todo app mais maintenant elle est un peu trop statique à mon goût... Et si on dynamisait un petit peu tout ça à grosse dose de JS ? 😁
 
-## Welcome! 👋
+---
 
-Thanks for checking out this front-end coding challenge.
+## On prépare le terrain
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+Pour cette première étape on devra écouter l'évènement de soumission du formulaire pour:
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+- Empêcher le rechargement de la page
 
-## The challenge
+- Récupérer la valeur du champ de texte
 
-Your challenge is to build out this todo app and get it looking as close to the design as possible.
+- Afficher un message d'erreur si le champ de texte est vide
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+---
 
-Your users should be able to:
+## Ajouter un todo
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Add new todos to the list
-- Mark todos as complete
-- Delete todos from the list
-- Filter by all/active/complete todos
-- Clear all completed todos
-- Toggle light and dark mode
-- **Bonus**: Drag and drop to reorder items on the list
+Ca y est on y est, on va ajouter le contenu de notre champ de texte fraîchement validé à notre liste de notre page HTML ! ✨✨
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+Pour ce faire on va:
 
-## Where to find everything
+- récuperer la liste qui porte la class CSS 'todo-list'
+- créer un élément li avec la class CSS 'todo-list\_\_task'
+- créer trois éléments span
+  - le deuxième élément contiendra le texte du champ de texte
+  - le dernier des éléments devra avoir la class CSS 'delete-cross'
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+Ensuite on va ajouter ces trois éléments dans notre élément li
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+Et enfin ajouter notre élément li dans la liste avant l'élément avec la class CSS '.todo-list\_\_footer'.
+Pfiou... 😩
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+---
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## Marquer un todo comme fait
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+Pour que notre liste serve à quelque chose, on veut pouvoir marquer nos todo comme "fait" sans pour autant les supprimer...
 
-## Building your project
+Pour ça on va ajouter la class CSS 'complete' lors du click sur l'élément avec la class CSS 'todo-list\_\_task' le plus proche concerné et on va agir sur l'input de type checkbox en le cochant
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+Si on reclique sur un todo marqué comme "fait", il doit passer à "non fait" et ainsi de suite ...
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+---
 
-## Deploying your project
+## Supprimer un todo
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+Si on peut ajouter... Il faut pouvoir supprimer ! 💡
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+On aura deux possibilitées
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+- la 1ère consistera a cliquer sur la petite croix présente lors du survol sur l'élément li contenant le todo
 
-## Create a custom `README.md`
+  - il faudra donc ajouter un évènement à cette croix pour réagir au click
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+- pour la 2ème on ne vas pas y aller avec le dos de la cuillère 🥄, on va tout simplement supprimer TOUT les todo marqués comme fait en se servant du bouton "Clear Completed"
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+  - Récuperer en javascript tout les éléments qui ont la class CSS 'complete' et les supprimer du document lors du click sur le bouton "Clear Completed" (il faudra peut être y ajouter un évènement pour qu'il se passe quelque chose) 😄😄
+    Et... c'est tout 😄
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+---
 
-## Submitting your solution
+## Liste dynamique
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+On peut ajouter et supprimer un todo... Trop cool ! 👍
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+Par contre le nombre de todo situé en bas à gauche de notre liste ne change pas... 😬
 
-## Sharing your solution
+On va devoir changer ça...
 
-There are multiple places you can share your solution:
+Pour ça on va changer le texte contenu dans l'élément avec l'id "todo-count" et lui donner le nombre de todo restants à faire 😄
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+<details>
+<summary>Spoiler</summary>
+Il me semble que les todo marqués comme "fait" ont la class CSS 'complete' 🤔
+On ne devrait pas avoir trop de mal à récuperer ceux qui ne sont pas fait du coup 😄
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+</details>
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+---
 
-## Got feedback for us?
+## Le grand ménage
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+On va s'occuper de trier maintenant 😄
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+On va donner une utilité aux boutons "All", "Active" et "Completed" du footer de notre liste
 
-**Have fun building!** 🚀
+- quand on click sur "All", on veut voir les todos "fait" et "non fait"
+- quand on click sur "Active", on veut voir que les todos "non fait"
+- quand on click sur "Completed", on veut voir que les todos "fait"
+
+---
+
+## Jour / Nuit
+
+<div style="text-align:center;margin: 2rem 0;">
+  <img src="./images/jour-nuit.gif" />
+</div>
+
+On va adapter notre todo app pour lui appliquer un theme clair ou un theme sombre ! ☀️ 🌕
+
+1. on va d'abord récuperer l'élément qui servira à changer entre le mode sombre et le mode clair (notre "switch") à savoir l'élément avec la class "theme-toggle".
+2. on va aussi récupérer tout les éléments qui ont la class "dark" ou la class "light" en fonction du thème de base
+3. une fois notre "switch" récupéré on va lui ajouter un écouteur d'évènement au click pour changer son attribut src et choisir la bonne image et changer la class CSS des éléments du point 2
+   - s'ils ont la class "dark" on changera pour "light" et inversement

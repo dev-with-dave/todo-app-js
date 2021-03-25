@@ -192,11 +192,6 @@ html {
   color: #222;
 }
 
-/**
- * ----------------------------------------
- * animation slide-in-fwd-top
- * ----------------------------------------
- */
 .header {
   height: 30vh;
 }
@@ -230,6 +225,13 @@ html {
 
 .header .theme-toggle {
   cursor: pointer;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+.header .theme-toggle:hover {
+  -webkit-transform: scale(1.1) rotate(360deg);
+          transform: scale(1.1) rotate(360deg);
 }
 
 .header.dark {
@@ -349,7 +351,45 @@ html {
   border-radius: 5px;
 }
 
-.todo-list input {
+.todo-list .todo-list__task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 3rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.todo-list .todo-list__task:hover span:first-child {
+  border-color: transparent;
+  background-image: linear-gradient(#25273c, #25273c), linear-gradient(315deg, #bd3bbd, #44c7ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.todo-list .todo-list__task:hover span:last-child {
+  opacity: 1;
+  -webkit-transition: color 200ms;
+  transition: color 200ms;
+}
+
+.todo-list .todo-list__task:hover span:last-child:hover {
+  color: #fff;
+  -webkit-transition: opacity 0;
+  transition: opacity 0;
+}
+
+.todo-list .todo-list__task span:first-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -375,31 +415,7 @@ html {
   cursor: pointer;
 }
 
-.todo-list input:hover {
-  border-color: transparent;
-  background-image: linear-gradient(#25273c, #25273c), linear-gradient(315deg, #bd3bbd, #44c7ff);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-
-.todo-list input:checked {
-  border: none;
-  border-radius: 50%;
-  background: linear-gradient(315deg, #bd3bbd, #44c7ff);
-}
-
-.todo-list input:checked + label {
-  text-decoration: line-through;
-  color: #777a92;
-}
-
-.todo-list input:checked::before {
-  content: url("../images/icon-check.svg");
-  -webkit-transform: translateY(10%);
-          transform: translateY(10%);
-}
-
-.todo-list label {
+.todo-list .todo-list__task span:nth-child(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -417,21 +433,31 @@ html {
   width: calc(100% - 3.25rem);
 }
 
-.todo-list .todo-list__task {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  height: 3rem;
+.todo-list .todo-list__task span:last-child {
+  opacity: 0;
+  position: absolute;
+  color: #777a92;
+  top: 50%;
+  right: 1.25rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.todo-list .todo-list__task.complete span:first-child {
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(315deg, #bd3bbd, #44c7ff);
+}
+
+.todo-list .todo-list__task.complete span:first-child::before {
+  content: url("../images/icon-check.svg");
+  -webkit-transform: translateY(10%);
+          transform: translateY(10%);
+}
+
+.todo-list .todo-list__task.complete span:nth-child(2) {
+  text-decoration: line-through;
+  color: #777a92;
 }
 
 .todo-list .todo-list__footer {
@@ -519,12 +545,8 @@ html {
   border-bottom: 1px solid #d2d3db;
 }
 
-.container.light .todo-list input:hover {
+.container.light .todo-list__task:not(.complete):hover span:first-child {
   background-image: linear-gradient(#fff, #fff), linear-gradient(315deg, #bd3bbd, #44c7ff);
-}
-
-.container.light .todo-list input:checked:hover {
-  background-image: linear-gradient(transparent, transparent), linear-gradient(315deg, #bd3bbd, #44c7ff);
 }
 
 .container.light .todo-list__footer li span:hover {
